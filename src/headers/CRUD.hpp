@@ -7,9 +7,8 @@
 using namespace std;
 
 class CRUD {
-    vector<ActiveDebt*> transactions;
+    vector<ActiveDebt> transactions;
 public:
-    void add_transaction();
     void add_transaction(ActiveDebt& t);
     void update_transaction(long id, ActiveDebt& t);
     void update_transaction(long id);

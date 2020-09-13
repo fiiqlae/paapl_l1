@@ -18,22 +18,22 @@ void ActiveDebt::update_for_interest(int months_elapsed) {
     this->set_value(new_value);
 }
 
-bool operator== (ActiveDebt& l, ActiveDebt& r) {
-    return l.debtType == r.debtType 
-        && l.value == r.value
-        && l.monthly_interest == r.monthly_interest
-        && l.id == r.id;
+bool ActiveDebt::operator== (const ActiveDebt& r) {
+    return this->debtType == r.debtType 
+        && this->value == r.value
+        && this->monthly_interest == r.monthly_interest
+        && this->id == r.id;
 }
 
-bool operator> (ActiveDebt& l, ActiveDebt& r) {
-    return l.value > r.value;
+bool ActiveDebt::operator> (const ActiveDebt& r) {
+    return this->value > r.value;
 }
 
-bool operator< (ActiveDebt& l, ActiveDebt& r) {
-    return l.value < r.value;
+bool ActiveDebt::operator< (const ActiveDebt& r) {
+    return this->value < r.value;
 }
 
-ActiveDebt& ActiveDebt::operator= (ActiveDebt& s) {
+ActiveDebt& ActiveDebt::operator= (const ActiveDebt& s) {
     this->id = s.id;
     this->debtType = s.debtType;
     this->value = s.value;

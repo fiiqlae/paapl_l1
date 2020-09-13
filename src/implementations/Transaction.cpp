@@ -1,22 +1,27 @@
 #include <iostream>
 #include "../headers/Transaction.hpp"
 #include <chrono>
+#include <stdlib.h>
+#include <time.h>
 
 #pragma once
 
 using namespace std::chrono;
 
 
+
 Transaction::Transaction(int value, double interest) {
     this->value = value;
     monthly_interest = interest;
-    id = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+    srand (time(NULL));
+    id = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count() + rand() % 211;
 }
 
 Transaction::Transaction() {
     value = 0;
     monthly_interest = 0;
-    id = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+    srand (time(NULL));
+    id = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count() + rand() % 211;
 }
 
 Transaction::Transaction(const Transaction &source) {

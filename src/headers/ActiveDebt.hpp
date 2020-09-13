@@ -11,8 +11,8 @@ public:
     void make_payment(int payment);
     void update_for_interest(int months_elapsed);
 
-    friend bool operator== (ActiveDebt& l, ActiveDebt &r);
-    friend bool operator< (ActiveDebt& l, ActiveDebt &r);
-    friend bool operator> (ActiveDebt& l, ActiveDebt &r);
-    ActiveDebt& operator= (ActiveDebt& s);
+    bool operator == (const ActiveDebt &r);
+    bool operator < (const ActiveDebt &r);
+    bool operator > (const ActiveDebt &r);
+    ActiveDebt& operator= (const ActiveDebt& s);
 };
